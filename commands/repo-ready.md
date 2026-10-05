@@ -4,7 +4,13 @@ description: Generate or audit AGENTS.md/CLAUDE.md for the current repository
 
 Run the repo-ready CLI against the current working directory and report the results.
 
-The CLI needs Node ≥ 18. Run it via `npx github:temmeik/repo-ready <cmd>`; if that is unavailable, use the bundled binary at `${CLAUDE_PLUGIN_ROOT}/bin/repo-ready.js`.
+**No GitHub CLI (`gh`) and no network are needed.** The CLI is a plain Node.js script bundled with this plugin. Run it via the plugin root token:
+
+```bash
+node "${CLAUDE_PLUGIN_ROOT}/bin/repo-ready.js" <cmd>
+```
+
+(Standalone fallback, if the token is not substituted: `npx github:temmeik/repo-ready <cmd>`. Requires Node ≥ 18.)
 
 Steps:
 

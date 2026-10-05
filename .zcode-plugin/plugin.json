@@ -1,8 +1,10 @@
 {
   "name": "repo-ready",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The doctor your repo needs before AI agents move in — generates truthful AGENTS.md/CLAUDE.md from repo evidence and audits them for drift.",
-  "author": { "name": "temmeik" },
+  "author": {
+    "name": "temmeik"
+  },
   "skills": "./skills",
   "commands": "./commands",
   "mcpServers": "./.mcp.json"

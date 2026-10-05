@@ -15,33 +15,41 @@ Make any repository legible to AI agents: a truthful AGENTS.md (commands, stack,
 
 ## How to use
 
-Run the zero-dependency CLI (works via npx, Node ≥ 18):
+Zero dependencies. **No GitHub CLI (`gh`) and no network needed** — when installed as a plugin, run the bundled CLI through the plugin root token:
+
+```bash
+node "${CLAUDE_PLUGIN_ROOT}/bin/repo-ready.js" <cmd>
+```
+
+Standalone (outside a plugin): `npx github:temmeik/repo-ready <cmd>` (Node ≥ 18).
+
+Commands:
 
 ```bash
 # 1. See what would be documented (no files written)
-npx repo-ready scan
+... scan
 
 # 2. Generate AGENTS.md + CLAUDE.md
-npx repo-ready init
+... init
 
 # 3. Any time later — audit for drift (exit code 1 = unhealthy)
-npx repo-ready check
+... check
 
 # 4. Regenerate after the project evolved (manual notes outside the
 #    <!-- repo-ready:auto --> markers are preserved)
-npx repo-ready update
+... update
 ```
 
-Optional: expose as MCP tools instead (`claude mcp add repo-ready -- npx repo-ready mcp`).
+Optional: expose as MCP tools instead (`claude mcp add repo-ready -- npx github:temmeik/repo-ready mcp`).
 
 ## Agent procedure
 
-1. Run `npx repo-ready scan` first and READ the output — verify the detected commands make sense before writing anything.
-2. Run `npx repo-ready init`. If it refuses because a hand-written AGENTS.md exists, show the user the conflict and ask: merge via `update` (safe, preserves manual notes) or `--force` (overwrites).
+1. Run `scan` first and READ the output — verify the detected commands make sense before writing anything.
+2. Run `init`. If it refuses because a hand-written AGENTS.md exists, show the user the conflict and ask: merge via `update` (safe, preserves manual notes) or `--force` (overwrites).
 3. After generating, open AGENTS.md and improve two sections by hand (inside the file, outside the auto markers, or by editing the auto block once and accepting it):
    - "What this project is" — one honest paragraph based on reading the code, not the package.json description.
    - Add any gotchas you noticed (codegen steps, ordering requirements, flaky tests) under "Do not touch".
-4. Run `npx repo-ready check` to confirm the result is healthy (score ≥ 90).
+4. Run `check` to confirm the result is healthy (score ≥ 90).
 5. Never edit files under the auto markers manually except through `update` — hand-edits there get lost.
 
 ## Notes
