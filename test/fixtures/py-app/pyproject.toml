@@ -1,0 +1,10 @@
+[project]
+name = "py-app-fixture"
+description = "Demo FastAPI service"
+dependencies = ["fastapi>=0.110", "pydantic>=2.6", "pytest>=8.0", "ruff>=0.4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

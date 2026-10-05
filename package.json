@@ -1,0 +1,23 @@
+{
+  "name": "repo-ready",
+  "version": "0.1.0",
+  "description": "The doctor your repo needs before AI agents move in. One command generates a truthful AGENTS.md + CLAUDE.md from what's actually in your repo — and `check` audits it for drift.",
+  "license": "MIT",
+  "bin": { "repo-ready": "bin/repo-ready.js" },
+  "scripts": {
+    "start": "node bin/repo-ready.js",
+    "test": "node test/e2e.js"
+  },
+  "engines": { "node": ">=18.0.0" },
+  "keywords": [
+    "agents-md",
+    "claude-code",
+    "codex",
+    "cursor",
+    "mcp",
+    "ai-agents",
+    "onboarding",
+    "developer-tools",
+    "skills"
+  ]
+}

@@ -1,0 +1,5 @@
+node_modules/
+*.log
+.DS_Store
+test/fixtures/**/AGENTS.md
+test/fixtures/**/CLAUDE.md
