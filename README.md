@@ -103,20 +103,28 @@ Verifies that every documented command still exists, flags scripts/dirs missing 
 
 ## Plug into your agent
 
-**As an Agent Skill** (Claude Code, Codex, Cursor-compatible format):
-copy [`skill/SKILL.md`](skill/SKILL.md) into your skills directory:
+### ZCode / Claude Code — as a plugin (recommended)
+
+Add this repo as a plugin marketplace and install — you get the skill, a `/repo-ready` command and the MCP server in one shot:
+
+- **ZCode:** Plugin Marketplace → Add → paste `temmeik/repo-ready` → install **Repo Ready**
+- **Claude Code:** `claude plugin marketplace add temmeik/repo-ready` → `/plugin install repo-ready@repo-ready`
+
+### As an Agent Skill (manual)
+
+Copy [`skills/repo-ready/SKILL.md`](skills/repo-ready/SKILL.md) into your skills directory:
 `~/.claude/skills/repo-ready/SKILL.md` — then just ask the agent to *"make this repo agent-ready"*.
 
-**As an MCP server** (both Claude Code and Codex support stdio MCP):
+### As an MCP server
 
 ```bash
 # Claude Code
-claude mcp add repo-ready -- npx repo-ready mcp
+claude mcp add repo-ready -- npx github:temmeik/repo-ready mcp
 
 # Codex (~/.codex/config.toml)
 [mcp_servers.repo-ready]
 command = "npx"
-args = ["repo-ready", "mcp"]
+args = ["github:temmeik/repo-ready", "mcp"]
 ```
 
 Tools exposed: `repo_scan` · `repo_generate` · `repo_check`

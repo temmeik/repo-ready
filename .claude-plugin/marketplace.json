@@ -1,0 +1,15 @@
+{
+  "name": "repo-ready",
+  "plugins": [
+    {
+      "name": "repo-ready",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "The doctor your repo needs before AI agents move in — truthful AGENTS.md/CLAUDE.md generation + drift audit. CLI, Skill & MCP. Zero deps.",
+      "displayName": "Repo Ready",
+      "displayName_i18n": { "zh-CN": "Repo Ready 仓库医生" },
+      "description_i18n": { "zh-CN": "一条命令根据仓库真实内容生成 AGENTS.md/CLAUDE.md，并用 check 模式审计文档是否过时。" },
+      "category": "developer-tools"
+    }
+  ]
+}
